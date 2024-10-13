@@ -5,16 +5,13 @@ info = [
     'Спасибо!'
      ]
 def custom_write(file_name, strings):
-    n = 0
-    elem = {}
-    for i in info:
-        file = open(file_name, "a", encoding='utf-8')
-        tell = (file.tell())
-        n+=1
-        file.write(f"{i}\n")
-        file.close()
-        elem.update({(n, tell):i})
-    return elem
+    strings_positions = {}
+    with open(file_name, 'w', encoding='utf-8') as file:
+        for i, line in enumerate(strings, 1):
+            position = file.tell()
+            file.write(line + '\n')
+            strings_positions[(i, position)] = line
+    return strings_positions
 
 result = custom_write('test.txt', info)
 for elem in result.items():
