@@ -32,7 +32,7 @@ second_knight.start()
 first_knight.join()
 second_knight.join()
 
-print("Game is over")
+print("Battles are over")
 
 
 
